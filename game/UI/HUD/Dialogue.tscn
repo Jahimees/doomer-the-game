@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvqvchy87e3un"]
+
+[ext_resource type="Texture2D" uid="uid://47tkvi8sr5hm" path="res://assets/player/player_idle.png" id="1_gg6x2"]
+[ext_resource type="Script" uid="uid://bnd1qsd3d0e2c" path="res://game/UI/HUD/dialogue.gd" id="1_nqj8b"]
+[ext_resource type="AudioStream" uid="uid://wsl7h1tfryaw" path="res://assets/sounds/ask_sound.mp3" id="3_vtpff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqj8b"]
+atlas = ExtResource("1_gg6x2")
+region = Rect2(0, 0, 62, 56.5)
+
+[node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_nqj8b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -11.0
+offset_top = 487.0
+offset_right = 1300.0
+offset_bottom = 646.0
+color = Color(0.335765, 0.36436, 0.515063, 0.984314)
+
+[node name="PlayerIcon" type="TextureRect" parent="."]
+offset_left = 899.0
+offset_top = 451.0
+offset_right = 1095.0
+offset_bottom = 647.0
+texture = SubResource("AtlasTexture_nqj8b")
+flip_h = true
+
+[node name="DialogueTextBox" type="Label" parent="."]
+offset_left = 251.0
+offset_top = 518.0
+offset_right = 413.0
+offset_bottom = 541.0
+text = "Sigma boy sigma boy"
+
+[node name="GiveAnswerButton" type="Button" parent="."]
+offset_left = 695.0
+offset_top = 606.0
+offset_right = 859.0
+offset_bottom = 635.0
+
+[node name="EnemyIcon" type="TextureRect" parent="."]
+offset_left = 24.0
+offset_top = 463.0
+offset_right = 192.0
+offset_bottom = 646.0
+
+[node name="AskSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vtpff")
+volume_db = -15.0
+pitch_scale = 0.6
+
+[connection signal="pressed" from="GiveAnswerButton" to="." method="_on_give_answer_button_pressed"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://di03swwcsqsjp"]
+
+[ext_resource type="Texture2D" uid="uid://dp7cs20ykfubg" path="res://assets/Main_title.png" id="1_nposg"]
+[ext_resource type="Script" uid="uid://bk1q4jkjgypeu" path="res://game/UI/menu/pause_menu.gd" id="1_vv0et"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_vv0et")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1188.0
+offset_bottom = 671.0
+color = Color(0, 0, 0, 0.403922)
+
+[node name="MainTitle" type="Sprite2D" parent="."]
+position = Vector2(562, 152)
+scale = Vector2(0.743456, 0.743455)
+texture = ExtResource("1_nposg")
+
+[node name="ContinueButton" type="Button" parent="."]
+offset_left = 414.0
+offset_top = 295.0
+offset_right = 684.0
+offset_bottom = 345.0
+theme_override_font_sizes/font_size = 30
+text = "Продолжить"
+
+[node name="ExitGameButton" type="Button" parent="."]
+offset_left = 414.0
+offset_top = 429.0
+offset_right = 684.0
+offset_bottom = 477.0
+theme_override_font_sizes/font_size = 30
+text = "Покинуть мир"
+
+[node name="ToMainMenuButton" type="Button" parent="."]
+offset_left = 414.0
+offset_top = 362.0
+offset_right = 685.0
+offset_bottom = 408.0
+theme_override_font_sizes/font_size = 30
+text = "В главное меню
+"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.418
+anchor_top = 0.71
+anchor_right = 0.418
+anchor_bottom = 0.71
+offset_left = -35.536
+offset_top = 48.92
+offset_right = 117.464
+offset_bottom = 71.92
+text = "Громкость музыки"
+
+[node name="MusicSlider" type="HSlider" parent="."]
+offset_left = 442.0
+offset_top = 537.0
+offset_right = 662.0
+offset_bottom = 553.0
+min_value = -60.0
+max_value = 10.0
+value = -20.0
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[connection signal="pressed" from="ToMainMenuButton" to="." method="_on_to_main_menu_button_pressed"]
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]

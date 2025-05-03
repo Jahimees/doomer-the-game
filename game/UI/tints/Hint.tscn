@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddelo0e0we0om"]
+
+[ext_resource type="Script" uid="uid://dqlx0l7txbtnv" path="res://game/UI/tints/hint.gd" id="1_h08bj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l01b6"]
+size = Vector2(534.5, 144)
+
+[sub_resource type="Animation" id="Animation_qymsw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h08bj"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 11.3137),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svgft"]
+_data = {
+&"RESET": SubResource("Animation_qymsw"),
+&"new_animation": SubResource("Animation_h08bj")
+}
+
+[node name="Hint" type="Node2D"]
+script = ExtResource("1_h08bj")
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("RectangleShape2D_l01b6")
+
+[node name="ShowAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_svgft")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = -151.0
+offset_top = -29.0
+offset_right = 151.0
+offset_bottom = 72.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
+[connection signal="body_exited" from="CollisionArea" to="." method="_on_collision_area_body_exited"]

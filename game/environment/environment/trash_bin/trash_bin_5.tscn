@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bawguef0genvs"]
+
+[ext_resource type="Texture2D" uid="uid://bmtuqvosxt4kb" path="res://assets/environment.png" id="1_2s66s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc7md"]
+atlas = ExtResource("1_2s66s")
+region = Rect2(1280, 160, 160, 160)
+
+[node name="TrashBin5" type="StaticBody2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_sc7md")

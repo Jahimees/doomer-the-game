@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://ykljrwrctro5"]
+
+[ext_resource type="PackedScene" uid="uid://yr565dpgxpxr" path="res://game/environment/floor/floor.tscn" id="1_5t5jc"]
+[ext_resource type="PackedScene" uid="uid://c0162orxldmp0" path="res://game/environment/background/background_1.tscn" id="1_7dndb"]
+[ext_resource type="Script" uid="uid://bl1clnmtgdml0" path="res://game/game.gd" id="1_efj5v"]
+[ext_resource type="PackedScene" uid="uid://nw405tlx6y5b" path="res://game/environment/background/background_2.tscn" id="1_mafgb"]
+[ext_resource type="PackedScene" uid="uid://bvbn04dn16oc8" path="res://game/objects/player/player.tscn" id="2_41k3g"]
+[ext_resource type="PackedScene" uid="uid://do6dasy0ck4t3" path="res://game/objects/cigarrete_object/CigaretteObject.tscn" id="2_gsnfh"]
+[ext_resource type="PackedScene" uid="uid://dfc1m3ij0e64d" path="res://game/environment/background/background_3.tscn" id="2_m7sxm"]
+[ext_resource type="PackedScene" uid="uid://cdhbtnol5ygc0" path="res://game/objects/enemy/Stranger.tscn" id="8_y36n6"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_efj5v")
+
+[node name="CigaretteObject2" parent="." instance=ExtResource("2_gsnfh")]
+position = Vector2(719, 528)
+
+[node name="CigaretteObject" parent="." instance=ExtResource("2_gsnfh")]
+position = Vector2(876, 525)
+
+[node name="FarestBuildingsParallax" parent="." instance=ExtResource("1_mafgb")]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(245, -110)
+
+[node name="MiddleBuildingsParallax" parent="." instance=ExtResource("2_m7sxm")]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(888, 174)
+screen_offset = Vector2(1000, 0)
+
+[node name="NearestBuildingsParallax" parent="." instance=ExtResource("1_7dndb")]
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(-158, 206)
+
+[node name="Player" parent="." instance=ExtResource("2_41k3g")]
+position = Vector2(521, 503)
+
+[node name="Floor2" parent="." instance=ExtResource("1_5t5jc")]
+position = Vector2(20, 69)
+
+[node name="Stranger" parent="." instance=ExtResource("8_y36n6")]
+position = Vector2(831, 510)

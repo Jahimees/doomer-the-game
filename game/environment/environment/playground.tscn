@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3v2lsx0wk2ue"]
+
+[ext_resource type="Texture2D" uid="uid://bngnh3wpbbbiq" path="res://assets/playground_3.png" id="1_sqyk8"]
+
+[node name="Playground" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_sqyk8")

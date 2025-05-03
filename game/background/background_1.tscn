@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0162orxldmp0"]
+
+[ext_resource type="PackedScene" uid="uid://dmguc1ffkmf02" path="res://game/objects/buildings/building_2.tscn" id="1_dyo7t"]
+
+[node name="background_1" type="Parallax2D"]
+scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-34, 160)
+repeat_size = Vector2(1500, 0)
+repeat_times = 5
+
+[node name="Node2D" parent="." instance=ExtResource("1_dyo7t")]
+position = Vector2(409, 172)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 72.0
+offset_top = -4444.0
+offset_right = 1572.0
+offset_bottom = 968.0
+color = Color(0.261466, 0.310186, 0.270921, 0.768627)

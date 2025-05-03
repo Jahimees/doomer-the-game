@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn20avdjtct3q"]
+
+[ext_resource type="Texture2D" uid="uid://ca8s7fr0sutbj" path="res://assets/sigarette/sigarette_full.png" id="1_ybfdl"]
+
+[node name="CigaretteTextureRect" type="TextureRect"]
+offset_left = 80.0
+offset_top = 449.0
+offset_right = 226.0
+offset_bottom = 468.0
+rotation = 1.5708
+texture = ExtResource("1_ybfdl")
+expand_mode = 1

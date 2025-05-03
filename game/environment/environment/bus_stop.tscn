@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpfshqbc7di22"]
+
+[ext_resource type="Texture2D" uid="uid://bmtuqvosxt4kb" path="res://assets/environment.png" id="1_hehyu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dh6l"]
+atlas = ExtResource("1_hehyu")
+region = Rect2(805, 0, 322, 161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hehyu"]
+size = Vector2(259, 147)
+
+[node name="BusStop" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_7dh6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(153.5, 85.5)
+shape = SubResource("RectangleShape2D_hehyu")
+one_way_collision = true

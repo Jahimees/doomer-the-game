@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://do6dasy0ck4t3"]
+
+[ext_resource type="Script" uid="uid://bqesv58v7wbx8" path="res://game/objects/cigarrete_object/cigarette_object.gd" id="1_a5bna"]
+[ext_resource type="Texture2D" uid="uid://ca8s7fr0sutbj" path="res://assets/sigarette/sigarette_full.png" id="2_6schj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x0a8"]
+
+[sub_resource type="Animation" id="Animation_ilq8k"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_6schj"]
+resource_name = "cigarette_idle_anim"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 1.99517, 3.01785, 3.99034)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -4, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -4, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 1.99517, 3.01785, 3.99034)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ilq8k"]
+_data = {
+&"RESET": SubResource("Animation_ilq8k"),
+&"cigarette_idle_anim": SubResource("Animation_6schj")
+}
+
+[node name="CigaretteObject" type="Area2D" groups=["cigarettes_group"]]
+collision_layer = 2
+script = ExtResource("1_a5bna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4x0a8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ilq8k")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_6schj")
+region_rect = Rect2(0, 0, 246, 32)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

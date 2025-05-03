@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b22uraupydvs5"]
+
+[ext_resource type="Texture2D" uid="uid://bmtuqvosxt4kb" path="res://assets/environment.png" id="1_xqsy6"]
+
+[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_xqsy6"]
+segments = PackedVector2Array(-90.5, -23.25, -108.5, -23.25, -108.5, -23.25, -108.5, -23.25, -90.5, -23.25, -78.5, -13.25, -78.5, -13.25, 1.5, -13.25, 15.5, -23.25, 1.5, -13.25, 15.5, -23.25, 43.5, -23.25, 43.5, -23.25, 43.5, -23.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qr1u"]
+atlas = ExtResource("1_xqsy6")
+region = Rect2(480, 0, 160, 160)
+
+[node name="Bench_4" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33.5, -11.75)
+shape = SubResource("ConcavePolygonShape2D_xqsy6")
+one_way_collision = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -80.0
+offset_top = -119.0
+offset_right = 81.0
+offset_bottom = 42.0
+texture = SubResource("AtlasTexture_5qr1u")

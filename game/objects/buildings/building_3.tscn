@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmyft82a8xtgd"]
+
+[ext_resource type="Texture2D" uid="uid://2pvnx3c3emss" path="res://assets/buildings/building_3.png" id="1_inumo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Building3" type="Sprite2D" parent="."]
+position = Vector2(182, 44)
+scale = Vector2(0.363281, 0.363281)
+texture = ExtResource("1_inumo")
+
+[node name="Building4" type="Sprite2D" parent="."]
+position = Vector2(-188, 44)
+scale = Vector2(0.363281, 0.363281)
+texture = ExtResource("1_inumo")
+flip_h = true
+
+[node name="Building1" type="Sprite2D" parent="."]
+position = Vector2(182, -121)
+scale = Vector2(0.363281, 0.363281)
+texture = ExtResource("1_inumo")
+
+[node name="Building2" type="Sprite2D" parent="."]
+position = Vector2(-189, -121)
+scale = Vector2(0.363281, 0.363281)
+texture = ExtResource("1_inumo")
+flip_h = true

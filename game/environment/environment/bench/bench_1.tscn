@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://2dj7b2kggjf0"]
+
+[ext_resource type="Texture2D" uid="uid://bmtuqvosxt4kb" path="res://assets/environment.png" id="1_am3cl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am3cl"]
+size = Vector2(154, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qr1u"]
+atlas = ExtResource("1_am3cl")
+region = Rect2(0, 0, 160, 160)
+
+[node name="Bench_1" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_am3cl")
+one_way_collision = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -80.0
+offset_top = -119.0
+offset_right = 81.0
+offset_bottom = 42.0
+texture = SubResource("AtlasTexture_5qr1u")

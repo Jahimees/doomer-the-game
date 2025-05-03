@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2i03wv0ii1nn"]
+
+[ext_resource type="VideoStream" uid="uid://bi8ieuhtmjd7q" path="res://assets/final_scene.ogv" id="1_o4ki1"]
+[ext_resource type="Script" uid="uid://oskx8teeap4q" path="res://game/UI/cutscenes/final_cutscene.gd" id="1_txfft"]
+[ext_resource type="AudioStream" uid="uid://7ept28vfvy5h" path="res://assets/music/lost_road_2.mp3" id="3_5kdho"]
+
+[node name="Cutscene" type="Node2D"]
+script = ExtResource("1_txfft")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.635, 0.6)
+stream = ExtResource("1_o4ki1")
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5kdho")
+volume_db = -20.0
+autoplay = true
